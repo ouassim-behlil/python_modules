@@ -29,7 +29,7 @@ class SecurePlant:
 
     def print_info(self):
         print(f"Current plant: {self.name} ({self.get_height()}cm,\
-        {self.get_age()} days)")
+ {self.get_age()} days)")
 
 
 if __name__ == "__main__":
