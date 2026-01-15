@@ -53,7 +53,7 @@ class Plant:
         self.__height += 1
 
     def describe(self) -> str:
-        """ 
+        """
         Describe the instance.
 
         Returns:
@@ -83,7 +83,7 @@ class FloweringPlant(Plant):
         Describe the Flower
 
         Args:
-            self: the instance 
+            self: the instance.
 
         Returns:
             a string describing the instance.
@@ -119,7 +119,6 @@ class PrizeFlower(FloweringPlant):
             print("It is set to default: 0")
             return
         self.__prize_points = prize_points
-
 
     def get_prize_points(self) -> int:
         return self.__prize_points
@@ -168,7 +167,7 @@ class GardenManager:
         if owner not in self.stats.keys():
             self.stats[owner] = GardenManager.GardenStats()
         self.stats[owner].total_plants += 1
-    
+
     def simulate_growth(
         self,
         owner: Plant
@@ -189,7 +188,7 @@ class GardenManager:
             print(f"{plant.name} grew 1cm")
 
         self.stats[owner].total_growth += len(self.gardens[owner])
-    
+
     def garden_report(self, owner: str) -> None:
         if owner not in self.gardens.keys():
             print(f"{owner} has no garden yet")
@@ -202,14 +201,14 @@ class GardenManager:
             f"\n Plants added: {self.stats[owner].total_plants},",
             f"Total growth: {self.stats[owner].total_growth}"
               )
-        count_by_type = self.stats[owner].count_plants_by_type(self.gardens[owner])
+        count = self.stats[owner].count_plants_by_type(self.gardens[owner])
         print(
             "Plant types:",
-            f"{count_by_type['regular']} regular, "
-            f"{count_by_type['flowering']} flowering, "
-            f"{count_by_type['prize_flowers']} prize flowers\n"
+            f"{count['regular']} regular, "
+            f"{count['flowering']} flowering, "
+            f"{count['prize_flowers']} prize flowers\n"
         )
-    
+
     def manager_report(self) -> None:
         print(
             "Height validation test: ",
@@ -225,7 +224,8 @@ class GardenManager:
     @classmethod
     def create_garden_network(cls) -> "GardenManager":
         """
-        class method to create a pre-configured garden manager with demo gardens.
+        class method to create a pre-configured
+        garden manager with demo gardens.
 
         Returns:
             GardenManager: a garden manager with Alice's and Bob's gardens.
@@ -250,12 +250,11 @@ class GardenManager:
 
         return manager
 
-    
     class GardenStats:
         def __init__(self):
             self.total_growth = 0
             self.total_plants = 0
-        
+
         @staticmethod
         def count_plants_by_type(garden: list[Plant]) -> dict[str, int]:
             """
@@ -297,12 +296,13 @@ class GardenManager:
                     if plant.get_height() < 0:
                         return False
             return True
+
         @staticmethod
         def garden_scores(gardens: dict[str, list[Plant]]) -> dict[str, int]:
             """
             Docstring for garden_scores
-            
-            :param gardens: gardens 
+
+            :param gardens: gardens
             :type gardens: dict[str, list[Plant]]
             :return: score for each owner in the garden manager
             :rtype: dict[str, int]
@@ -312,6 +312,8 @@ class GardenManager:
                 score = len(garden) * 88
                 scores[owner] = score
             return scores
+
+
 if __name__ == "__main__":
     print("=== Garden Management System Demo ===\n")
     manager = GardenManager.create_garden_network()

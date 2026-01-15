@@ -65,7 +65,6 @@ if __name__ == "__main__":
     flower1.bloom()
     flower2.bloom()
 
-
     # Trees
     tree1 = Tree("oak", 500, 10, 50)
     tree2 = Tree("olive", 350, 8, 30)
@@ -73,11 +72,9 @@ if __name__ == "__main__":
     tree1.produce_shade()
     tree2.produce_shade()
 
-
     # Vegetables
     vegetable1 = Vegetable("carrot", 30, 1, "spring", "vitamin A")
     vegetable2 = Vegetable("spinach", 40, 1, "winter", "iron")
 
     vegetable1.get_nutritional_value()
     vegetable2.get_nutritional_value()
-
